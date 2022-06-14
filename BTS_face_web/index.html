@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="naver-site-verification" content="425ec3539e57e481ddf1a7804bf9a2b0f3b3053a" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet" />
+        <link rel="canonical" href="https://btstest.ga">
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            crossorigin="anonymous"
+        />
+        <meta
+            name="description"
+            content="얼굴로 보는 인공지능 BTS 테스트, 나와 닮은 맴버를 찾아보세요!"
+        />
+
+        <title>BTS 닮은꼴 테스트</title>
+        <meta name="title" content="방탄소년단 닮은꼴 테스트" />
+        <meta
+            name="subject"
+            content="얼굴로 보는 인공지능 BTS 테스트, 나와 닮은 맴버를 찾아보세요!"
+        />
+        <meta
+            name="keywords"
+            content="BTS 테스트, 인공지능 테스트, 얼굴상, 얼굴상 테스트, 나와 닮은 멤버, 인공지능, AI 얼굴상"
+        />
+        <meta name="author" content="onenonlim" />
+        <link rel="stylesheet" href="style.css" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="BTS 닮은꼴 테스트" />
+        <meta
+            property="og:description"
+            content="얼굴로 보는 인공지능 BTS 테스트, 나와 닮은 맴버를 찾아보세요!"
+        />
+        <meta property="og:url" content="hhttps://btstest.ga" />
+        <script
+            type="text/javascript"
+            src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e64b3727e862b06"
+        ></script>
+    </head>
+
+    <body>
+        <nav class="p-3 container navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="https://btstest.ga/">BTS 닮은꼴 테스트</a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active"></li>
+                    <li>
+                        <a class="nav-link" id="yotube-top-link" href=""
+                            >BlackPink 닮은꼴 테스트(오픈예정)</a
+                        >
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <section class="section">
+            <h1 class="title">BTS 닮은꼴 테스트</h1>
+            <h2 class="subtitle">나와 닮은 맴버를 찾아보세요!</h2>
+            <h3 class="sr-only">본 서비스는 유튜브 채널 "조코딩"님의 영상을 참고하였습니다.</h3>
+            <h4 class="sr-only">
+                본 서비스는 Google의 인공지능 teachable machine 2.0을 활용하였습니다.
+            </h4>
+        </section>
+        <section class="youtube pb-3" id="yotube-mid-link">
+            <div class="container mt-3 youtube-cover d-flex flex-row-reverse align-items-center">
+                <a href="" class="youtube-link"></a>
+            </div>
+        </section>
+        <h3 class="pb-2 d-flex justify-content-center">언어를 선택하세요</h3>
+        <section class="d-flex justify-content-center">
+            <p class="d-flex align-items-center pr-3">한국어</p>
+            <div>
+                <input type="checkbox" id="gender" />
+                <label for="gender">
+                    <span class="knob">
+                        <i></i>
+                    </span>
+                </label>
+            </div>
+            <p class="d-flex align-items-center pl-3">English</p>
+        </section>
+        <script
+            class="jsbin"
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
+        ></script>
+        <div class="mt-3 container file-upload">
+            <div class="image-upload-wrap">
+                <input
+                    class="file-upload-input"
+                    type="file"
+                    onchange="readURL(this);"
+                    accept="image/*"
+                />
+                <div class="drag-text">
+                    <img src="img/upload.svg" class="mt-5 pt-5 upload" />
+                    <h3 class="mb-5 pb-5 pt-4 upload-text">
+                        얼굴 사진을 올려놓거나 눌러서 업로드하세요!
+                    </h3>
+                </div>
+            </div>
+            <div class="file-upload-content">
+                <img class="file-upload-image" id="face-image" src="#" alt="your image" />
+                <div id="loading" class="animated bounce">
+                    <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <p class="text-center">AI가 당신의 얼굴을 분석중입니다.</p>
+                </div>
+                <p class="result-message"></p>
+                <div id="label-container" class="d-flex flex-column justify-content-around"></div>
+
+                <div class="pt-3 image-title-wrap">
+                    <button
+                        type="button p-2"
+                        class="try-again-btn"
+                        onclick="window.location.reload();"
+                    >
+                        <span class="try-again-text">다른 사진으로 재시도</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- 광고 -->
+        <div class="ad-banner">
+            <ins
+                class="kakao_ad_area"
+                style="display: none;"
+                data-ad-unit="DAN-qec48pdqs1fd"
+                data-ad-width="320"
+                data-ad-height="100"
+            ></ins>
+            <script
+                type="text/javascript"
+                src="//t1.daumcdn.net/kas/static/ba.min.js"
+                async
+            ></script>    
+            <ins class="kakao_ad_area" style="display:none;" 
+ data-ad-unit    = "DAN-sl3ery5ur2as" 
+ data-ad-width   = "320" 
+ data-ad-height  = "50"></ins> 
+<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+        </div>
+        
+        
+        
+        <footer class="footer pt-5 container d-flex justify-content-center">
+            <div>
+                <p>&copy;onenonlim</p>
+            </div>
+        </footer>
+        <script>
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('.image-upload-wrap').hide();
+                        $('#loading').show();
+                        $('.file-upload-image').attr('src', e.target.result);
+                        $('.file-upload-content').show();
+                        $('.image-title').html(input.files[0].name);
+                    };
+                    reader.readAsDataURL(input.files[0]);
+                    init().then(function () {
+                        console.log('hello');
+                        predict();
+                        $('#loading').hide();
+                    });
+                } else {
+                    removeUpload();
+                }
+            }
+
+            function removeUpload() {
+                $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+                $('.file-upload-content').hide();
+                $('.image-upload-wrap').show();
+            }
+            $('.image-upload-wrap').bind('dragover', function () {
+                $('.image-upload-wrap').addClass('image-dropping');
+            });
+            $('.image-upload-wrap').bind('dragleave', function () {
+                $('.image-upload-wrap').removeClass('image-dropping');
+            });
+        </script>
+        <div id="disqus_thread"></div>
+        <script>
+            /**
+             *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+            /*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+            (function () {
+                // DON'T EDIT BELOW THIS LINE
+                var d = document,
+                    s = d.createElement('script');
+                s.src = 'https://bts-face-1.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript
+            >Please enable JavaScript to view the
+            <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript
+        >
+
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+        <script type="text/javascript">
+            let URL;
+            const urlMale = 'https://teachablemachine.withgoogle.com/models/wuw8PhnVN/';
+            const urlFemale = 'https://teachablemachine.withgoogle.com/models/wuw8PhnVN/';
+            let model, webcam, labelContainer, maxPredictions;
+            async function init() {
+                if (document.getElementById('gender').checked) {
+                    URL = urlMale;
+                } else {
+                    URL = urlFemale;
+                }
+                const modelURL = URL + 'model.json';
+                const metadataURL = URL + 'metadata.json';
+                model = await tmImage.load(modelURL, metadataURL);
+                maxPredictions = model.getTotalClasses();
+                labelContainer = document.getElementById('label-container');
+                for (let i = 0; i < maxPredictions; i++) {
+                    var element = document.createElement('div');
+                    element.classList.add('d-flex');
+                    labelContainer.appendChild(element);
+                }
+            }
+            async function predict() {
+                var image = document.getElementById('face-image');
+                const prediction = await model.predict(image, false);
+                prediction.sort((a, b) => parseFloat(b.probability) - parseFloat(a.probability));
+                console.log(prediction[0].className);
+                var resultTitle, resultExplain, resultCeleb;
+                if (document.getElementById('gender').checked) {
+                    switch (prediction[0].className) {
+                        case 'V':
+                            resultTitle = 'Conglaturation! You look like V for the most!';
+                            resultExplain =
+                                'V was born Kim Tae-hyung (Korean: 김태형) on December 30, 1995 in Daegu, South Korea, and grew up in Geochang County.He is the eldest of three children, with a younger brother and sister.V initially became a trainee for Big Hit Entertainment after passing an audition in Daegu.';
+                            resultCeleb = ' ';
+                            break;
+                        case 'Sugar':
+                            resultTitle = 'Conglaturation! You look like Sugar for the most!';
+                            resultExplain =
+                                "Min Yoon-gi (Korean: 민윤기 born March 9, 1993), better known as Suga and Agust D, debuted as a member of the South Korean pop idol group BTS in 2013. In 2016, he released his first solo mixtape, Agust D. In 2020, he released his second solo mixtape, D-2. Commercially, the mixtape peaked at number 11 on the US Billboard 200, number 7 on the UK Albums Chart and number 2 on Australia's ARIA Album Chart.";
+                            resultCeleb = '';
+                            break;
+                        case 'RM':
+                            resultTitle = 'Conglaturation! You look like RM for the most!';
+                            resultExplain =
+                                'Kim Nam-joon (Korean: 김남준 born September 12, 1994),  known as RM (formerly Rap Monster), is the leader of the South Korean boy group BTS. In 2015, he released his first solo mixtape, RM. In October 2018, his second mixtape, Mono, was the highest charting album by a Korean soloist on the Billboard 200 chart, having peaked at 26. He has recorded with artists such as Wale, Younha, Warren G, Gaeko, Krizz Kaliko, MFBTY, Fall Out Boy, Primary, and Lil Nas X.';
+                            resultCeleb = ' ';
+                            break;
+                        case 'Jungkook':
+                            resultTitle = 'Conglaturation! You look like Jungkook for the most!';
+                            resultExplain =
+                                'Jeon Jung-kook (Korean: 전정국 born September 1, 1997), known as Jungkook, is a member of and vocalist in the South Korean boy band BTS. In 2011, Jungkook auditioned for the South Korean talent show Superstar K during its auditions in Daegu.Though he was not selected, he received casting offers from seven entertainment companies. He eventually chose to become a trainee under Big Hit Entertainment after seeing RM';
+                            resultCeleb = ' ';
+                            break;
+                        case 'Jin':
+                            resultTitle = 'Conglaturation! You look like Jin for the most!';
+                            resultExplain =
+                                "Kim Seok-jin (Korean: 김석진 born on December 4, 1992), also known as Jin, was scouted for the group while in university and joined Big Hit Entertainment as an actor, eventually transitioning to a Korean idol. Kim has co-written and released three solo tracks with BTS: Awake (2016), Epiphany (2018), and Moon (2020), all of which have charted on South Korea's Gaon Digital Chart. In 2019, Kim released his first independent song, the digital track Tonight";
+                            resultCeleb = '';
+                            break;
+                        case 'Jimin':
+                            resultTitle = 'Conglaturation! You look like Jimin for the most!';
+                            resultExplain =
+                                'Park Ji-min (Korean: 박지민 born on October 13, 1995), known as Jimin, debuted as a member of the South Korean boy band BTS, under the record label Big Hit Entertainment.Once he passed the auditions in 2012, he transferred to Korean Arts High School, graduating in 2014. Jimin is currently enrolled at Global Cyber University';
+                            resultCeleb = '';
+
+                            break;
+                        case 'J-Hope':
+                            resultTitle = 'Conglaturation! You look like J-Hope for the most!';
+                            resultExplain =
+                                "Jung Ho-seok (Korean: 정호석 born February 18, 1994),  known as name J-Hope. In 2013, J-Hope made his debut as a member of the South Korean BTS, managed under Big Hit Entertainment. J-Hope released his first solo mixtape, Hope World, worldwide on March 1, 2018. The album was met with a positive reception. His debut at number 63 (and subsequent peak at number 38) made him the highest charting solo Korean artist on the Billboard 200 at the time of the mixtape's release. In September 27, 2019, he released his song ”Chicken Noodle Soup” featuring Becky G";
+                            resultCeleb = ' ';
+                            break;
+                        default:
+                            resultTitle = '알수없음';
+                            resultExplain = '';
+                            resultCeleb = '';
+                    }
+                } else {
+                    switch (prediction[0].className) {
+                        case 'V':
+                            resultTitle = '축하합니다! 당신은 뷔를 가장 닮았습니다!';
+                            resultExplain =
+                                '방탄소년단 내에서 맏형 진, 막내 정국과 함께 팀에서 비주얼을 담당하고 있다. 진이 고급스럽고 자상하고 단정하고 깔끔한 느낌의 정석 미남, 정국이 꽃미남이라면, 뷔는 섹시하고 화려한 외모로 팀 내 입덕을 담당하는 멤버로 뽑힌다. 일본 여성들이 뽑은 한국 남자 아이돌 TOP 15에서 5위를 하기도 했다. 2018년 초에는 공개된 아이돌 100인이 뽑은 미남 투표에서 1위를 차지하기도 했다.매우 뚜렷하고 입체적인 이목구비를 가져서 조금 세보일수도 있는 인상이지만 실제로 보면 되게 순하게 생겼다는 실물 후기가 많다. 또한 웃으면 굉장히 순하고 귀여운 공격력 0인 인상이 되는데 이 갭이 매력적이라는 평이 많다.';
+                            resultCeleb = ' ';
+                            break;
+                        case 'Sugar':
+                            resultTitle = '축하합니다! 당신은 슈가를 가장 닮았습니다!';
+                            resultExplain =
+                                "직설적인 랩 가사와 강렬한 랩 스타일과는 상반되게 동글동글하고 귀여운 느낌의 외모이다. 그렇기에 얼굴만 보고 '얘는 당연히 보컬이겠지' 했다가 후에 래퍼임을 알고 깜짝 놀라는 경우도 많다. 멤버들 중에서 가장 피부가 하얀데, 방탄소년단 안에서만이 아니라 전체적인 한국인 평균 피부색과 비교해 봤을 때도 매우 하얗다. 하얀 피부 덕에 화려한 색상의 헤어가 잘 어울린다. 때문에 그룹 안에서 머리색이 가장 자주 바뀌는 멤버이다.";
+                            resultCeleb = ' ';
+                            break;
+                        case 'RM':
+                            resultTitle = '축하합니다! 당신은 RM을 가장 닮았습니다!';
+                            resultExplain =
+                                '멤버들의 증언에 따르면 응답하라 1994의 쓰레기와 판박이라고 한다. 일할 때 빼고는 덜렁대는 성격 때문인 듯하지만 그에 비해 성격은 소심한 편이라고 한다. 댓글 하나하나에 일희일비하는 멤버로 꼽히기도 했다. 본인도 모니터링을 많이 하는 편이라고 인정했다. 인터넷에서 유행하는 드립이나 유행어 등을 많이 알고 자주 사용하는 모습을 보이며, 이 때문에 생긴 별명이 김네티즌. 실제로 웬만한 사이트는 거의 다 눈팅한다고 본인이 직접 언급하기도 했다. 작은 댓글들도 잘 확인하는 편이며 눈여겨 보곤 잘 기억해 둔다고 한다.얼굴처럼 착하고 멋지다.';
+                            resultCeleb = ' ';
+                            break;
+                        case 'Jungkook':
+                            resultTitle = '축하합니다! 당신은 정국을 가장 닮았습니다!';
+                            resultExplain =
+                                '데뷔 초에는 순한 이미지의 막내였다. 초창기랑 가장 차이가 많이 난다. 데뷔 직후는 미소년 상이었고 소년스러웠다면 그로부터 정변하여 단정하고 깔끔한 분위기의 미남으로 확연히 듬직해졌다. 가수는 컨셉에 따라 분위기가 달라지기 마련이지만 성장에 따라 활동마다 인상이 달라지는 것이 눈에 띄는 멤버이기도 하다. 소년미와 섹시미를 등가교환했다 헤어스타일에 따라 분위기가 극심하게 바뀌기도 한다.';
+                            resultCeleb = ' ';
+                            break;
+                        case 'Jimin':
+                            resultTitle = '축하합니다! 당신은 지민을 가장 닮았습니다!';
+                            resultExplain =
+                                '춤에 자부심을 가진 스펙트럼이 넓은 올라운더 댄서. 각자의 춤선이 뚜렷한 방탄소년단 내에서도 특히 팝핀과 현대 무용에서 강점을 보이는 멤버이다. 아크로바틱과 파워풀한 안무도 잘 소화하지만 섬세한 안무 등 다양한 장르의 춤을 폭넓게 소화한다. 그루브, 파워, 강약조절, 유연성, 아름다움 춤선, 자기만의 느낌 이 모두를 갖추었다. 선이 아름다운 현대 무용 장르의 춤은 물론 남성적인 힙합 댄스도 독보적이다.';
+                            resultCeleb = ' ';
+                            break;
+                        case 'Jin':
+                            resultTitle = '축하합니다! 당신은 진을 가장 닮았습니다!';
+                            resultExplain =
+                                '멤버들이 인정하는 방탄소년단의 공식 비주얼이다. 화려하다기보다는 고급스러운 분위기를 지닌 도시적이고 차분한 느낌의 정석으로 잘생긴 미남이다.상견례 프리패스상 연예인으로 자주 꼽히기도 한다. 방탄소년단의 비주얼 라인 중 뷔는 화려한 비주얼을, 정국은 미소년 비주얼을 담당하고 있다면 진은 배우상의 차분하고 남친돌스러운 분위기의 정석 미남이다. 실제로 방탄소년단의 멤버들도 팀 내에서 외모 순위를 정할 때 진을 항상 1위로 뽑기도 한다. 참해 보이는 외모라 시대와 유행을 잘 타지 않는 미남이기도 하다. 쌍꺼풀이 없어도 눈동자가 또렷하다.';
+                            resultCeleb = ' ';
+                            break;
+                        case 'J-Hope':
+                            resultTitle = '축하합니다! 당신은 제이홉을 가장 닮았습니다!';
+                            resultExplain =
+                                '예명에 어울리는 성격의 소유자로 친화력이 좋아 사람들과 잘 섞인다는 멤버들의 증언이 있다. 원래 사람에게 다가가는 성격이라 보이는 그대로 거리낌 없이 말한다고 한다. 성격처럼 예능이나 여러 방송에서 적극적이고 에너지가 넘치며, 입을 벌리고 활짝 웃을 때 개구진 인상이 특징이다.펌이 들어간 머리부터 생머리, 투블럭 등 다양한 헤어스타일을 선보이고 있다.';
+                            resultCeleb = ' ';
+                            break;
+                        default:
+                            resultTitle = '알수없음';
+                            resultExplain = '';
+                            resultCeleb = '';
+                    }
+                }
+                var title =
+                    "<div class='" +
+                    prediction[0].className +
+                    "-animal-title'>" +
+                    resultTitle +
+                    '</div>';
+                var explain = "<div class='animal-explain pt-2'>" + resultExplain + '</div>';
+                var celeb =
+                    "<div class='" +
+                    prediction[0].className +
+                    "-animal-celeb pt-2 pb-2'>" +
+                    resultCeleb +
+                    '</div>';
+                $('.result-message').html(title + explain + celeb);
+                var barWidth;
+                for (let i = 0; i < maxPredictions; i++) {
+                    if (prediction[i].probability.toFixed(2) > 0.1) {
+                        barWidth = Math.round(prediction[i].probability.toFixed(2) * 100) + '%';
+                    } else if (prediction[i].probability.toFixed(2) >= 0.01) {
+                        barWidth = '4%';
+                    } else {
+                        barWidth = '2%';
+                    }
+                    var labelTitle;
+                    switch (prediction[i].className) {
+                        case 'V':
+                            labelTitle = 'V';
+                            break;
+                        case 'Sugar':
+                            labelTitle = 'Sugar';
+                            break;
+                        case 'RM':
+                            labelTitle = 'RM';
+                            break;
+                        case 'Jungkook':
+                            labelTitle = 'Jungkook';
+                            break;
+                        case 'Jin':
+                            labelTitle = 'Jin';
+                            break;
+                        case 'Jimin':
+                            labelTitle = 'Jimin';
+                            break;
+                        case 'J-Hope':
+                            labelTitle = 'J-Hope';
+                            break;
+                        default:
+                            labelTitle = '알수없음';
+                    }
+                    var label =
+                        "<div class='animal-label d-flex align-items-center'>" +
+                        labelTitle +
+                        '</div>';
+                    var bar =
+                        "<div class='bar-container position-relative container'><div class='" +
+                        prediction[i].className +
+                        "-box'></div><div class='d-flex justify-content-center align-items-center " +
+                        prediction[i].className +
+                        "-bar' style='width: " +
+                        barWidth +
+                        "'><span class='d-block percent-text'>" +
+                        Math.round(prediction[i].probability.toFixed(2) * 100) +
+                        '%</span></div></div>';
+                    labelContainer.childNodes[i].innerHTML = label + bar;
+                }
+            }
+        </script>
+        <script>
+            function iosApp() {
+                document.getElementById('coupang').style.display = 'none';
+                $('#coupang ins').hide();
+                document.getElementById('addThis').style.display = 'none';
+                document.getElementById('disqus_thread').style.display = 'none';
+                var kakao = document.getElementsByClassName('kakao_ad_area');
+                for (var i = 0; i < kakao.length; i++) {
+                    if (kakao[i]) {
+                        kakao[i].style.display = 'none';
+                    }
+                }
+                document.getElementById('yotube-top-link').style.display = 'none';
+                document.getElementById('yotube-mid-link').style.display = 'none';
+                document.getElementById('yotube-bottom-link').style.display = 'none';
+            }
+        </script>
+		<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script> <script type="text/javascript"> if(!wcs_add) var wcs_add = {}; wcs_add["wa"] = "c9e4568857d36"; if(window.wcs) { wcs_do(); } </script>
+    </body>
+	
+    <!-- 
+image input box
+Copyright (c) 2020 by Aaron Vanston (https://codepen.io/aaronvanston/pen/yNYOXR)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+gender toggle
+Copyright (c) 2020 by Mert Cukuren (https://codepen.io/knyttneve/pen/bPpEZY)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ -->
+</html>
